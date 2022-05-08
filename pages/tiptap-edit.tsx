@@ -15,7 +15,7 @@ import { FiRefreshCw } from 'react-icons/fi';
 import { MdFormatListBulleted } from 'react-icons/md';
 import { VscHorizontalRule, VscNoNewline } from 'react-icons/vsc';
 import { FaHighlighter } from 'react-icons/fa';
-import styles  from './tiptap-edit.module.css';
+import styles  from './tiptap-edit.module.scss';
 
 
 
@@ -210,7 +210,7 @@ const TipTapEdit = (props: Props) => {
 	}
 
 	return (
-		<div>
+		<div className={styles.content} >
 			<MenuBar editor={editor} />
 			<div>
 				<button onClick={addImage} className={styles.editButton}>

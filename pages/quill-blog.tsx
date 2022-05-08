@@ -6,7 +6,7 @@ import Link from 'next/link';
 const QuillBlog = () => {
 	const { blogData } = useContext(RootContext);
 
-console.log(blogData)
+	console.log(blogData)
 	return (
 		<div>
 			<div>{parse(blogData || '')}</div>
