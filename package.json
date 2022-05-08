@@ -17,6 +17,7 @@
     "axios": "^0.26.1",
     "babel-plugin-superjson-next": "^0.4.3",
     "bcryptjs": "^2.4.3",
+    "html-react-parser": "^1.4.12",
     "jsonwebtoken": "^8.5.1",
     "next": "12.1.5",
     "next-auth": "^4.3.3",
