@@ -15,12 +15,31 @@ import { FiRefreshCw } from 'react-icons/fi';
 import { MdFormatListBulleted } from 'react-icons/md';
 import { VscHorizontalRule, VscNoNewline } from 'react-icons/vsc';
 import { FaHighlighter } from 'react-icons/fa';
-import styles  from './tiptap-edit.module.scss';
+import styles from './tiptap-edit.module.scss';
+import { getSession } from 'next-auth/react';
+import axios from 'axios';
+import { Session } from '@auth0/nextjs-auth0';
 
+
+// export async function getServerSideProps(context: any) {
+// 	const session = await getSession({ req: context.req });
+// 	// Redirect if user isn't logged in
+// 	if (!session) {
+// 		return {
+// 			redirect: {
+// 				destination: '/',
+// 				permanent: false,
+// 			},
+// 		};
+// 	}
+// 	return {
+// 		props: { session },
+// 	};
+// }
 
 
 type Props = {
-
+	session: Session;
 }
 
 type MenuProps = {
@@ -148,6 +167,8 @@ const MenuBar = (props: MenuProps) => {
 
 
 const TipTapEdit = (props: Props) => {
+	const { session } = props;
+	console.log({ session })
 	const [value, setValue] = useState('');
 	const { blogData, setBlogData } = useContext(RootContext);
 
@@ -201,14 +222,26 @@ const TipTapEdit = (props: Props) => {
 		}
 	}
 
+	const postBlog = async () => {
+		try {
+			const res = await axios.post('api/blog/create-entry', { entry: editor?.getJSON(), user: {email: 'jessbonanno@gmail.com'} })
+			// const res = await axios.post('api/blog/create-entry', { entry: editor?.getJSON(), user: session.user })
+			console.log(res)
+		} catch (error) {
+			console.error(error)
+		}
+	}
+
 	const saveBlog = () => {
-		setBlogData(value);
+		setBlogData(editor?.getJSON());
+		postBlog();
 	}
 	const eraseBlog = () => {
 		setBlogData(null);
 		setValue('')
 	}
 
+	console.log(blogData)
 	return (
 		<div className={styles.content} >
 			<MenuBar editor={editor} />
@@ -219,7 +252,7 @@ const TipTapEdit = (props: Props) => {
 				<EditorContent editor={editor} />
 			</div>
 			<EditorContent editor={editor} />
-			<button onClick={saveBlog}>Save</button>
+			<button onClick={postBlog}>Save</button>
 			<button onClick={eraseBlog}>Clear</button>
 			<Link href="/tiptap-blog">Go to blog</Link>
 		</div>

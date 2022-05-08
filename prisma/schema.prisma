@@ -35,6 +35,12 @@ model Spotlight {
   linkedinUrl  String?
   instagramUrl String?
   youtubeUrl   String?
-  imageUrl String
-  about    String
+  imageUrl     String
+  about        String
+}
+
+model Blog {
+  id       String @id @default(cuid())
+  authorId String
+  entry    Json
 }

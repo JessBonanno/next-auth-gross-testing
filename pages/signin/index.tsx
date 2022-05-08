@@ -56,6 +56,7 @@ const Auth = (props: Props) => {
 					placeholder="Password" />
 				<button type="submit">Sign In</button>
 				<button onClick={resetPassword}>Reset Password</button>
+				<Link href="/">Home</Link>
 			</form>
 		</div>
 	);
