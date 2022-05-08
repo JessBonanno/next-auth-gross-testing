@@ -15,7 +15,6 @@ const TipTapBlog = () => {
 	const postBlog = async () => {
 		try {
 			const res = await axios.get('api/blog/get-entry');
-			// const res = await axios.post('api/blog/create-entry', { entry: editor?.getJSON(), user: session.user })
 			console.log(res)
 			setBlogData(res.data.entry)
 		} catch (error) {
