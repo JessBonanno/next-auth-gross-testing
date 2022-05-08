@@ -1,4 +1,6 @@
+import axios from 'axios';
 import { signIn } from 'next-auth/react';
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 type Props = {}
@@ -27,6 +29,16 @@ const Auth = (props: Props) => {
 		console.log(res)
 	}
 
+	const resetPassword = async(e: React.SyntheticEvent) => {
+		e.preventDefault();
+		try {
+			const res = await axios.post(`/api/auth/sendReset`, {email: credentials.email});
+			console.log(res)
+		} catch (err) {
+			console.error(err)
+		}
+	}
+
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
@@ -43,6 +55,7 @@ const Auth = (props: Props) => {
 					value={credentials.password}
 					placeholder="Password" />
 				<button type="submit">Sign In</button>
+				<button onClick={resetPassword}>Reset Password</button>
 			</form>
 		</div>
 	);
