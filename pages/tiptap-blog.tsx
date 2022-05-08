@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import { RootContext } from '../context/RootContext';
 import Link from 'next/link';
 
-const SlateBlog = () => {
+const TipTapBlog = () => {
 	return (
 		<div>
-			<div>Slate Blog</div>
-			<Link href="/slate-edit">Go to edit blog</Link>
+			<div>TipTap Blog</div>
+			<Link href="/tiptap-edit">Go to edit blog</Link>
 		</div>
 	);
 }
-export default SlateBlog
+export default TipTapBlog
