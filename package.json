@@ -31,6 +31,7 @@
     "next": "12.1.5",
     "next-auth": "^4.3.3",
     "nodemailer": "^6.7.4",
+    "npm-install-peers": "^1.2.2",
     "pg-promise": "^10.11.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
