@@ -14,6 +14,7 @@ model User {
   image        String?
   userType     String
   password     String
+  githubUrl    String?
   twitterUrl   String?
   facebookUrl  String?
   linkedinUrl  String?
@@ -30,6 +31,7 @@ model Spotlight {
   id           String  @id @default(cuid())
   menteeName   String
   portfolioUrl String?
+  githubUrl    String?
   twitterUrl   String?
   facebookUrl  String?
   linkedinUrl  String?
@@ -43,4 +45,12 @@ model Blog {
   id       String @id @default(cuid())
   authorId String
   entry    Json
+}
+
+model Testimonial {
+  id          String  @id @default(cuid())
+  authorName  String
+  authorImage String?
+  testimonial String
+  type        String
 }
