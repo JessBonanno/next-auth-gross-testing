@@ -11,7 +11,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 		res
 			.status(422)
 			.json({
-				message: 'Invalid input - password should be at least 7 characters long'
+				message: 'Invalid input - email and password should be at least 7 characters long'
 			})
 		return
 	}

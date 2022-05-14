@@ -7,10 +7,9 @@ import prisma from '../../../lib/prisma';
 // Optional fields in body: content
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
 	try {
-
 		const result = await prisma.blog.findUnique({
 			where: {
-				id: 'cl2xxuuq30002xy32xxpf3oc2'
+				id: 'cl30s3e4b0002dn32mwuco9h9'
 			}
 		})
 		console.log({ result })

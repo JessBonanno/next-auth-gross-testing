@@ -9,8 +9,6 @@ export default function Home(): React.ReactElement {
 		<div style={{display: 'flex', flexDirection: 'column'}}>
 			<Link href='/tiptap-edit'>tiptap Blog Editor</Link>
 			<Link href='/tiptap-blog'>tiptap Blog</Link>
-			<Link href='/quill-edit'>Quill Blog Editor</Link>
-			<Link href='/quill-edit'>Quill Blog</Link>
 			<Link href='/signin'>Sign In</Link>
 		</div>
 		);

@@ -12,7 +12,7 @@ import axios from 'axios';
 const TipTapBlog = () => {
 	const { blogData, setBlogData } = useContext(RootContext);
 
-	const postBlog = async () => {
+	const getBlog = async () => {
 		try {
 			const res = await axios.get('api/blog/get-entry');
 			console.log(res)
@@ -22,7 +22,7 @@ const TipTapBlog = () => {
 		}
 	}
 	useEffect(() => {
-		postBlog();
+		getBlog();
 	}, [])
 
 	const editor = useEditor({
